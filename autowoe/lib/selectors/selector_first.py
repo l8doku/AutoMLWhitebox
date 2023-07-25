@@ -156,10 +156,10 @@ def feature_imp_selector(
         model = lgb.train(
             params=params,
             train_set=lgb_train,
-            early_stopping_rounds=10,
+            # early_stopping_rounds=10,
             valid_sets=[lgb_test],
             valid_names=["val_set"],
-            verbose_eval=verbose_eval,
+            # verbose_eval=verbose_eval,
         )
         imp_dict = dict(zip(train.drop(target_name, axis=1).columns, model.feature_importance()))
     elif imp_type == "perm_imp":

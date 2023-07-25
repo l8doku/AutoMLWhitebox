@@ -100,7 +100,7 @@ class TreeParamOptimizer:
             cv_results = lgb.cv(
                 params=unite_params, train_set=self._lgb_train, num_boost_round=1, folds=folds, metrics=self._metric
             )
-            scores.append(cv_results["{}-mean".format(self._cv_metric_map[self._metric])])
+            scores.append(cv_results["valid {}-mean".format(self._cv_metric_map[self._metric])])
 
         return scores
 
